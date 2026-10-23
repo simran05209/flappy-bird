@@ -13,7 +13,8 @@ body {
 .background {
   height: 100vh;
   width: 100vw;
-  background: url('images/background-img.png') no-repeat center center fixed;
+  /* FIXED: Points directly to background-img.png in your main directory */
+  background: url('background-img.png') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -34,8 +35,7 @@ body {
   left: 100vw;
   height: 70vh;
   width: 6vw;
-  background: radial-gradient(circle, rgb(248, 192, 255) 50%, rgb(128, 0, 79));
-
+  background: radial-gradient(lightblue 50%, rgb(15, 0, 128));
   border: 5px solid black;
 }
 
@@ -46,7 +46,7 @@ body {
   color: black;
   top: 30%;
   left: 50%;
-  font-size: 4em;
+  font-size: 2em;
   transform: translate(-50%, -50%);
   text-align: center;
   white-space: pre-line;
@@ -151,6 +151,7 @@ body {
 .play-btn:hover {
   background-color: #218838;
 }
+
 .fireworks {
   position: fixed;
   top: 0;
