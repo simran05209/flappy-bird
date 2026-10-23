@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flappy Bird Game</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background -->
-  <div class="background"></div>
+    <div class="background"></div>
+    
+    <div class="bird" id="bird">
+        <!-- FIXED: Pointing directly to Bird.png in your main directory -->
+        <img src="Bird.png" id="bird-1" alt="bird-img" style="width: 100%; height: 100%; display: none;">
+    </div>
 
-  <!-- Bird -->
-  <img src="images/Bird.png" alt="bird" class="bird" id="bird-1" style="display: none;" />
+    <!-- Game Message Window -->
+    <div class="message messageStyle" id="game-message">
+        Press <b>Enter</b> to Start Game
+    </div>
 
-  <!-- Authentication Box -->
-  <div class="auth" id="auth-box">
-    <h2>Login / Signup</h2>
-    <input type="text" id="username" placeholder="Enter username" />
-    <input type="password" id="password" placeholder="Enter password" />
-    <button onclick="login()">Login</button>
-    <button onclick="signup()">Signup</button>
-    <p id="auth-error" style="color: red;"></p>
-  </div>
+    <!-- Score Box Display -->
+    <div class="score" id="score-box" style="display: none;">
+        Score: <span class="score_val">0</span>
+    </div>
 
-  <!-- Play Section -->
-  <div id="play-section" class="play-area" style="display: none;">
-    <button onclick="showGameStartMessage()" class="play-btn">Play</button>
-  </div>
+    <!-- Authentication Area -->
+    <div class="auth" id="auth-box">
+        <h2>Flappy Bird Login</h2>
+        <div id="auth-error" style="color: red; font-size: 0.9em; margin-bottom: 5px;"></div>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button onclick="login()">Login</button>
+        <button onclick="signup()">Sign Up</button>
+    </div>
 
-  <!-- Game Start Message -->
-  <div id="game-message" class="message messageStyle" style="display: none;"></div>
+    <!-- Last Score History Box -->
+    <div class="score-history" id="score-history" style="display: none;">
+        <h3>Your Last 3 Scores:</h3>
+        <ul id="last-scores"></ul>
+    </div>
 
-  <!-- Score Display -->
-  <div class="score" id="score-box" style="display: none;">
-    <span class="score_title">Score: </span>
-    <span class="score_val">0</span>
-  </div>
+    <!-- Overlay Play Menu Container -->
+    <div class="play-area" id="play-section" style="display: none;">
+        <button class="play-btn" onclick="showGameStartMessage()">Set Game Ready</button>
+    </div>
 
-  <!-- Score History -->
-  <div class="score-history" id="score-history" style="display: none;">
-    <h3>Last 3 Scores</h3>
-    <ul id="last-scores"></ul>
-  </div>
+    <script src="script.js"></script>
 </body>
 </html>
