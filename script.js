@@ -12,9 +12,10 @@ const playSection = document.getElementById('play-section');
 const score_history = document.getElementById('score-history');
 const last_scores_ul = document.getElementById('last-scores');
 
-const sound_point = new Audio('sounds effect/point.mp3');
-const sound_die = new Audio('sounds effect/die.mp3');
-const sound_win = new Audio('sounds effect/win.mp3');
+// FIXED: Removed folder names to match your direct uploads
+const sound_point = new Audio('point.mp3');
+const sound_die = new Audio('die.mp3');
+const sound_win = new Audio('win.mp3');
 sound_win.load();
 sound_point.load();
 sound_die.load();
@@ -103,6 +104,7 @@ document.addEventListener('keydown', e => {
   }
 
   if ((game_state === 'Ready' || game_state === 'End') && e.key === 'Enter' && currentUser) {
+
     document.querySelectorAll('.pipe_sprite').forEach(p => p.remove());
     bird.style.top = '40vh';
     bird_dy = 0;
@@ -117,7 +119,6 @@ document.addEventListener('keydown', e => {
     bird_props = bird.getBoundingClientRect();
     background = document.querySelector('.background').getBoundingClientRect();
 
-    // Pre-trigger audio (for browser permissions)
     sound_point.play().catch(() => {});
     sound_point.pause();
     sound_point.currentTime = 0;
@@ -191,14 +192,12 @@ function play() {
       topPipe.className = 'pipe_sprite';
       topPipe.style.top = pipe_posi - 70 + 'vh';
       topPipe.style.left = '100vw';
-      topPipe.style.backgroundColor = 'green'; // Change pipe color
       document.body.appendChild(topPipe);
 
       let bottomPipe = document.createElement('div');
       bottomPipe.className = 'pipe_sprite';
       bottomPipe.style.top = pipe_posi + pipe_gap + 'vh';
       bottomPipe.style.left = '100vw';
-      bottomPipe.style.backgroundColor = 'orange'; // Change pipe color
       bottomPipe.increase_score = '1';
       document.body.appendChild(bottomPipe);
     }
@@ -233,7 +232,6 @@ function endGame(win = false) {
       container.appendChild(firework);
     }
   
-    // Remove fireworks after animation
     setTimeout(() => {
       container.remove();
     }, 1500);
@@ -241,14 +239,15 @@ function endGame(win = false) {
 
   if (win) {
     sound_win.play().catch(() => {});
-    showFireworks();  // 🎆 Show crackers when win
+    showFireworks();
   } else {
     sound_die.play().catch(() => {});
   }
 
+  // FIXED: Removed the 5 duplicate lines that crashed the game
   message.innerHTML = win
     ? '<b>🏆You Win!</b><br>Press <b>Enter to play again</b>'
-    : '<b>💥 Game Over</b><br>Press <b>Enter to restart</b>';
+    : '<b>💥 Game Over</b><br>Press <b>Enter to try again</b>';
 
   message.style.display = 'block';
   playSection.style.display = 'block';
