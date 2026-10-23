@@ -12,7 +12,7 @@ const playSection = document.getElementById('play-section');
 const score_history = document.getElementById('score-history');
 const last_scores_ul = document.getElementById('last-scores');
 
-// FIXED: Removed folder names to match your direct uploads
+// FIXED: Cleaned audio paths to access loose repository files
 const sound_point = new Audio('point.mp3');
 const sound_die = new Audio('die.mp3');
 const sound_win = new Audio('win.mp3');
@@ -244,7 +244,7 @@ function endGame(win = false) {
     sound_die.play().catch(() => {});
   }
 
-  // FIXED: Removed the 5 duplicate lines that crashed the game
+  // FIXED: Removed structural loop duplicates crashing your endgame display loop
   message.innerHTML = win
     ? '<b>🏆You Win!</b><br>Press <b>Enter to play again</b>'
     : '<b>💥 Game Over</b><br>Press <b>Enter to try again</b>';
