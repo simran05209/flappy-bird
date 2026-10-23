@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- Bird -->
+  <img src="images/Bird.png" alt="bird" class="bird" id="bird-1" style="display: none;" />
+
+  <!-- Authentication Box -->
+  <div class="auth" id="auth-box">
+    <h2>Login / Signup</h2>
+    <input type="text" id="username" placeholder="Enter username" />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="login()">Login</button>
+    <button onclick="signup()">Signup</button>
+    <p id="auth-error" style="color: red;"></p>
+  </div>
+
+  <!-- Play Section -->
+  <div id="play-section" class="play-area" style="display: none;">
+    <button onclick="showGameStartMessage()" class="play-btn">Play</button>
+  </div>
+
+  <!-- Game Start Message -->
+  <div id="game-message" class="message messageStyle" style="display: none;"></div>
+
+  <!-- Score Display -->
+  <div class="score" id="score-box" style="display: none;">
+    <span class="score_title">Score: </span>
+    <span class="score_val">0</span>
+  </div>
+
+  <!-- Score History -->
+  <div class="score-history" id="score-history" style="display: none;">
+    <h3>Last 3 Scores</h3>
+    <ul id="last-scores"></ul>
+  </div>
+</body>
+</html>

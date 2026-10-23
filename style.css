@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* Background */
+.background {
+  height: 100vh;
+  width: 100vw;
+  background: url('images/background-img.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Bird */
+.bird {
+  height: 30px;
+  width: 50px;
+  position: fixed;
+  top: 40vh;
+  left: 30vw;
+  z-index: 100;
+}
+
+/* Pipes */
+.pipe_sprite {
+  position: fixed;
+  top: 40vh;
+  left: 100vw;
+  height: 70vh;
+  width: 6vw;
+  background: radial-gradient(circle, rgb(248, 192, 255) 50%, rgb(128, 0, 79));
+
+  border: 5px solid black;
+}
+
+/* Game message */
+.message {
+  position: absolute;
+  z-index: 10;
+  color: black;
+  top: 30%;
+  left: 50%;
+  font-size: 4em;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: pre-line;
+}
+
+.messageStyle {
+  background: white;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5%;
+}
+
+/* Score box */
+.score {
+  position: fixed;
+  z-index: 10;
+  height: 10vh;
+  font-size: 10vh;
+  font-weight: 100;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+
+.score_val {
+  color: gold;
+  font-weight: bold;
+}
+
+/* Auth box */
+.auth {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  text-align: center;
+}
+
+.auth input {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.auth button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth button:hover {
+  background-color: #0056b3;
+}
+
+/* Score history */
+.score-history {
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 999;
+  font-size: 1em;
+}
+
+/* Play button */
+.play-area {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.play-btn {
+  padding: 15px 40px;
+  font-size: 20px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  background-color: #218838;
+}
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background: transparent;
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: red;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(10); opacity: 0; }
+}
